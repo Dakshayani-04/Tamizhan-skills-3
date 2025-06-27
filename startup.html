@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GreenStart - Eco Startup Landing Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #333;
+      --primary-color: #4CAF50;
+      --header-color: #2e7d32;
+      --nav-color: #1b5e20;
+      --card-bg: #fff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1e1e1e;
+      --text-color: #f0f0f0;
+      --primary-color: #66bb6a;
+      --header-color: #1b5e20;
+      --nav-color: #2e7d32;
+      --card-bg: #2a2a2a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: var(--header-color);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: var(--header-color);
+      font-weight: bold;
+    }
+
+    nav {
+      background: var(--nav-color);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+      color: rgb(104, 255, 4);
+      text-align: center;
+      padding: 6rem 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; margin-bottom: 2rem; }
+
+    .cta {
+      padding: 0.8rem 1.5rem;
+      background: var(--primary-color);
+      color: rgb(235, 247, 228);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+    }
+
+    .features, .pricing, .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1 1 250px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .testimonials .card img {
+      width: 70px;
+      border-radius: 50%;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .contact-form button {
+      background: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--nav-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      nav { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GreenStart</h1>
+    <p>Your Eco-Friendly Startup Solution</p>
+    <button id="theme-toggle">Dark Mode</button>
+  </header>
+
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Grow Sustainably with GreenStart</h1>
+    <p>Eco-first tools and strategies for conscious startups.</p>
+    <button class="cta" onclick="scrollToContact()">Start Now</button>
+  </section>
+
+  <section id="features" class="section">
+    <h2>Our Features</h2>
+    <div class="features">
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/4caf50/server.png" alt="Green Hosting" />
+        <h3>Green Hosting</h3>
+        <p>Servers powered by 100% renewable energy sources.</p>
+      </div>
+      <div class="card">
+        <img src="https://img.icons8.com/ios-filled/50/4caf50/idea.png" alt="Startup Toolkit" />
+        <h3>Startup Toolkit</h3>
+        <p>Everything you need to go to market with a green identity.</p>
+      </div>
+      <div class="card">
+        <img src="ecomarkting.jpeg" alt="Marketing" />
+        <h3>Eco Marketing</h3>
+        <p>Grow your business using planet-positive marketing strategies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section">
+    <h2>Pricing Plans</h2>
+    <div class="pricing">
+      <div class="card">
+        <h3>Basic</h3>
+        <p><strong>$19/month</strong></p>
+        <p>1 project<br>Email support<br>Green hosting</p>
+      </div>
+      <div class="card">
+        <h3>Pro</h3>
+        <p><strong>$49/month</strong></p>
+        <p>5 projects<br>Priority support<br>Custom branding</p>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <p><strong>$99/month</strong></p>
+        <p>Unlimited projects<br>Dedicated manager<br>Full service package</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="section">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials">
+      <div class="card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1">
+        <p>"GreenStart made our launch so smooth and ethical. Love their vibe!"</p>
+        <strong>- Aruna, SolarMate</strong>
+      </div>
+      <div class="card">
+        <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Client 2">
+        <p>"Impressive design. Great support. Proud to go green!"</p>
+        <strong>- Ramesh, EcoBox</strong>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 GreenStart. All rights reserved.</p>
+    <div class="flex justify-center space-x-6 text-xl mb-3">
+    <a href="#" class="hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+    <a href="#" class="hover:text-blue-400"><i class="fab fa-github"></i></a>
+    <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+  </div>
+  </footer>
+
+  <script>
+    function scrollToContact() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thank you! We'll contact you shortly.");
+      this.reset();
+    });
+
+    // Theme toggle
+    const toggleBtn = document.getElementById("theme-toggle");
+    toggleBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      toggleBtn.textContent = newTheme === "dark" ? "Light Mode" : "Dark Mode";
+    });
+  </script>
+
+</body>
+</html>
